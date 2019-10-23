@@ -1,0 +1,24 @@
+题目：（循环）输入一个非负int类型整数，在一行中输出该整数的二进制表示中值为1的位数。
+/* input100  output3*/
+
+
+
+
+
+
+
+
+
+#include<stdio.h>
+
+int main(void) {
+	
+	int a,n=0;
+	scanf_s("%d", &a);
+	while (a > 0){
+		n = n+a % 2;  //judge if the last number is 1,if true, add 1 to n;
+		a = a / 2;  //delete the last number
+	}
+	printf("%d", n);
+	return 0;
+}
