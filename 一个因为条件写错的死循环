@@ -1,0 +1,28 @@
+题目：（循环）求e值。 E约等于1/0!+1/1!+1/2!+….+E(E<10的-6次方)。输出为一个数，保留6位小数。
+
+
+
+
+
+
+
+#include<stdio.h>
+
+int main(void) {
+	double i;
+	double n=1;
+	double sum=1,mul=1;
+	for (i = 1; i <= n; i++) {
+		mul = mul * i;
+		sum = sum + 1 / mul;
+		n++;
+		if (mul <= 1e-6)
+    //这里条件写错了嗷，结果导致死循环了
+    //调试的时候发现死循环是因为i和n和mul都在不断更新但sum不更新了（所以为什么sum不更新了？）
+    
+    
+			 goto out;
+	}
+	out:printf("%.6lf",sum);
+	return 0;
+}
