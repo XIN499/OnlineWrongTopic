@@ -1,0 +1,36 @@
+题目（循环）输入两个正整数n（保证不会以0开头）和m，输出n的位数以及n经过循环右移m位后的数（保证不会以0开头）(两者以一个空格分隔) 。
+n小于10的14次方：
+
+/*input 1001234 4
+output 7 1234100*/
+
+
+
+
+
+
+
+
+
+
+
+答案第一版：
+#include<stdio.h>
+#include<math.h>
+
+int main(void) {
+	long long n;
+	int m,total;
+	scanf_s("%lld%d", &n, &m);
+	total = (long double)log10(n)+1;
+	int i = 1;
+	int last;
+	for (i = 1; i <= m; i++) {
+		last = n % 10;
+		n = n/ 10;
+		n = last * pow(10,total - 1)+n;
+	}
+	printf("%d %lld", total,n);
+
+	return 0;
+}
